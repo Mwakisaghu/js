@@ -11,10 +11,11 @@ const LOG_EVENT_MONSTER_ATTACK = 'MONSTER_ATTACK';
 const LOG_EVENT_PLAYER_HEAL = 'PLAYER_HEAL';
 const LOG_EVENT_GAME_OVER = 'GAME_OVER';
 
-const enteredValue = prompt('Maximum life for ypu and the Monster.','100');
+const enteredValue = prompt('Maximum life for you and the Monster.','100');
 
 let chosenMaxLife = parseInt(enteredValue);
 let battleLog = [];
+let lastLoggedEntry;
 
 if(isNaN(chosenMaxLife) || (chosenMaxLife <=0)) {
   chosenMaxLife = 100;
@@ -177,8 +178,31 @@ function healPLayerHandler() {
 }
 
 function printLogHandler() {
-  console.log(battleLog);
+  for (let i = 0; i<3; i++) {
+    console.log('--------')
+  }
+  /*for (let i = 0; i < battleLog.length; i++) {
+    console.log(battleLog[i]);
+  }*/
+
+  let i = 0;
+  for (const logEntry of battleLog) {
+    if (!lastLoggedEntry && lastLoggedEntry !== 0 || lastLoggedEntry < 1) {
+      console.log(`#${i}`);
+    for (const key in logEntry) {
+      console.log(`${key} => ${logEntry[key]}`);
+    }
+    lastLoggedEntry = i;
+    break;
+    }
+    i++;  
+  }
 }
+
+
+  /*for (const logEntry of battleLog) {
+    console.log(logEntry);
+  }*/
 
 attackBtn.addEventListener('click', attackHandler);
 strongAttackBtn.addEventListener('click', strongAttackHandler);
