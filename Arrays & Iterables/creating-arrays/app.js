@@ -26,7 +26,7 @@ for (const data of analyticsData) {
 
 console.log (personalData[1]); */
 
-const hobbies = ['cooking', 'sports'];
+/*const hobbies = ['cooking', 'sports'];
 hobbies.push('reading');
 hobbies.unshift('coding'); //adds an item to the array
 const poppedValue = hobbies.pop(); //removing elements
@@ -40,4 +40,11 @@ hobbies.splice(1, 0, 'Good Food');
 console.log(hobbies);
 
 const removedElements = hobbies.splice(0, 1); // removes the an element
-console.log(hobbies);
+console.log(hobbies);*/
+
+
+const testResults = [1, 5.3, 5, 7.6, 10, 15, 30];
+const storedResults = testResults.slice(2);
+
+testResults.push(5.91);
+console.log(storedResults, testResults);
