@@ -50,3 +50,17 @@ const storedResults = testResults.concat([3,99, 2]); //add elemnts to the end of
 testResults.push(5.91);
 console.log(storedResults, testResults);
 console.log(testResults.indexOf(5));
+
+const personData = [{name: 'Harry'}, {name: 'codedGenius'}];
+console.log(personData.indexOf({name: 'codedGenius'}));
+
+const codedGenius = personData.find((person, id, persons) => {
+  return person.name === 'codedGenius';
+});
+console.log(codedGenius);
+
+const harryIndex = personData.findIndex((person, id, persons) => {
+  return person.name === 'Harry';
+});
+
+console.log(harryIndex);
