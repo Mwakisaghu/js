@@ -49,3 +49,4 @@ const storedResults = testResults.concat([3,99, 2]); //add elemnts to the end of
 
 testResults.push(5.91);
 console.log(storedResults, testResults);
+console.log(testResults.indexOf(5));
