@@ -65,7 +65,7 @@ const harryIndex = personData.findIndex((person, id, persons) => {
 
 console.log(harryIndex);*/
 
-const prices = [10.99, 5.99, 3.99, 6.59];
+/*const prices = [10.99, 5.99, 3.99, 6.59];
 const tax = 0.19;
 const taxAdjustablePrices = [];
 
@@ -73,9 +73,19 @@ const taxAdjustablePrices = [];
   taxAdjustablePrices.push(price * (1 + tax));
 };*/
 
-prices.forEach((price, idx, prices) => {
+/*prices.forEach((price, idx, prices) => {
   const priceObj = {index: idx, taxAdjPrice: price * (1 + tax)}
   taxAdjustablePrices.push(priceObj);
 });
 
-console.log(taxAdjustablePrices);
+console.log(taxAdjustablePrices); */
+
+const prices = [10.99, 5.99, 3.99, 6.59];
+const tax = 0.19;
+
+const taxAdjustablePrices = prices.map((price, idx, prices) => {
+  const priceObj = {index: idx, taxAdjPrice: price * (1 + tax)}
+  return priceObj;
+});
+
+console.log(prices, taxAdjustablePrices);
