@@ -43,7 +43,7 @@ const removedElements = hobbies.splice(0, 1); // removes the an element
 console.log(hobbies);*/
 
 
-const testResults = [1, 5.3, 5, 7.6, 10, 15, 30];
+/*const testResults = [1, 5.3, 5, 7.6, 10, 15, 30];
 //const storedResults = testResults.slice(2);
 const storedResults = testResults.concat([3,99, 2]); //add elemnts to the end of an array
 
@@ -63,4 +63,19 @@ const harryIndex = personData.findIndex((person, id, persons) => {
   return person.name === 'Harry';
 });
 
-console.log(harryIndex);
+console.log(harryIndex);*/
+
+const prices = [10.99, 5.99, 3.99, 6.59];
+const tax = 0.19;
+const taxAdjustablePrices = [];
+
+/*for (const price of prices) {
+  taxAdjustablePrices.push(price * (1 + tax));
+};*/
+
+prices.forEach((price, idx, prices) => {
+  const priceObj = {index: idx, taxAdjPrice: price * (1 + tax)}
+  taxAdjustablePrices.push(priceObj);
+});
+
+console.log(taxAdjustablePrices);
