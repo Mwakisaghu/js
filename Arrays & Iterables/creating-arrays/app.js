@@ -88,4 +88,16 @@ const taxAdjustablePrices = prices.map((price, idx, prices) => {
   return priceObj;
 });
 
-console.log(prices, taxAdjustablePrices);
+//console.log(prices, taxAdjustablePrices);
+
+const sortedPrices = prices.sort((a, b) => {
+  if (a > b) {
+    return 1;
+  } else if (a === b) {
+    return 0;
+  } else {
+    return -1;
+  }
+});
+
+console.log(sortedPrices.reverse());
