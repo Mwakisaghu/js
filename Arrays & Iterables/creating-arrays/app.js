@@ -108,4 +108,10 @@ const filteredArray = prices.filter((price, idx, prices) => {
   return price > 6; 
 });
 
+// const filteredArray = prices.filter(p => p >6);
+
 console.log(filteredArray);
+
+const sum = prices.reduce((preValue, curValue) => preValue + curValue,0);
+
+console.log(sum);
