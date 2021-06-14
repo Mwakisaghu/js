@@ -131,8 +131,8 @@ const copiedNameFragments = [...nameFragments];
 nameFragments.push('Mr');
 console.log(nameFragments, copiedNameFragments);*/
 
-const nameData = ['Harry', 'codedGenius', 'Mr', 23];
+/*const nameData = ['Harry', 'codedGenius', 'Mr', 23];
 //const firstName = nameData[0];
 //const lastName = nameData[1];
 const [firstName, lastName, ...otherInfo] = nameData;
-console.log(firstName, lastName, otherInfo);
+console.log(firstName, lastName, otherInfo);*/
