@@ -80,7 +80,7 @@ const taxAdjustablePrices = [];
 
 console.log(taxAdjustablePrices); */
 
-const prices = [10.99, 5.99, 3.99, 6.59];
+/*const prices = [10.99, 5.99, 3.99, 6.59];
 const tax = 0.19;
 
 const taxAdjustablePrices = prices.map((price, idx, prices) => {
@@ -115,3 +115,24 @@ console.log(filteredArray);
 const sum = prices.reduce((preValue, curValue) => preValue + curValue,0);
 
 console.log(sum);
+
+const data = 'new york; 10.99; 2000';
+const transformData = data.split(';');
+transformData [1] = +transformData [1];
+console.log(transformData); */
+
+/*const nameFragments = ['Harry', 'codedGenius'];
+const names = nameFragments.join(' ');
+console.log(names);
+
+const nameFragments = ['Harry', 'codedGenius'];
+
+const copiedNameFragments = [...nameFragments];
+nameFragments.push('Mr');
+console.log(nameFragments, copiedNameFragments);*/
+
+const nameData = ['Harry', 'codedGenius', 'Mr', 23];
+//const firstName = nameData[0];
+//const lastName = nameData[1];
+const [firstName, lastName, ...otherInfo] = nameData;
+console.log(firstName, lastName, otherInfo);
