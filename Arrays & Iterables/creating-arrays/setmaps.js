@@ -14,7 +14,7 @@ for(const entry of ids.entries()) {
 }*/
 
 //WORKING WITH MAPS.......................................................
-const person1 ={name: 'Harry'};
+/*const person1 ={name: 'Harry'};
 const person2 = {name: 'codedgenius'};
 
 const personData = new Map([[person1, [{date: 'yesterday', price: 10}]]]);
@@ -34,4 +34,21 @@ for(const [key, value] of personData.entries()) {
 
 for(const key of personData.keys()) {
   console.log(key);
-};
+};*/
+
+//...............Understanding WeakSet....................................
+let person = {name: 'harry'};
+const persons = new WeakSet();
+persons.add(person);
+
+//person = null;
+
+console.log(persons);
+
+//................understanding WeakMap..................................
+const personData = new WeakMap();
+personData.set(person, 'Extra info!');
+
+person = null;
+
+console.log(personData);
