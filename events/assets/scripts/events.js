@@ -26,3 +26,7 @@ const boundFn = buttonClickHandler.bind(this);
 buttons.forEach((btn) => {
   btn.addEventListener('click', buttonClickHandler);
 });
+
+window.addEventListener('scroll', (ev) => {
+  console.log(ev);
+});
