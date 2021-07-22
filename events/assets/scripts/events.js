@@ -50,10 +50,11 @@ div.addEventListener(
   true
 );
 
-button.addEventListener('click', (ev) => {
+button.addEventListener('click', function (ev) {
   ev.stopPropagation();
   console.log('Clicked Button');
   console.log(ev);
+  console.log(this);
 });
 
 //approach 1- select all l1 items and add multiple listeners
