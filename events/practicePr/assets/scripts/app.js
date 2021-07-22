@@ -105,7 +105,7 @@ class ProjectItem {
   }
 
   connectDrag() {
-    document.getElementById(this.id).addEventListener('dragstart', event => {
+    document.getElementById(this.id).addEventListener('dragstart', (event) => {
       event.dataTransfer.setData('text/plain', this.id);
       event.dataTransfer.effectAllowed = 'move';
     });
@@ -148,6 +148,30 @@ class ProjectList {
       );
     }
     console.log(this.projects);
+    this.connectDroppable();
+  }
+
+  connectDroppable() {
+    const list = document.querySelector(`#${this.type}-projects ul`);
+
+    list.addEventListener('dragenter', (ev) => {
+      if (ev.dataTransfer.types[0] === 'text/plain') {
+        list.parentElement.classList.add('droppable');
+        ev.preventDefault();
+      }
+    });
+
+    list.addEventListener('dragover', (ev) => {
+      if (ev.dataTransfer.types[0] === 'text/plain') {
+        ev.preventDefault();
+      }
+    });
+
+    list.addEventListener('dragleave', (ev) => {
+      if (ev.relatedTarget.closest(`#${this.type}-projects ul`) !== list) {
+        list.parentElement.classList.remove('droppable');
+      }
+    });
   }
 
   setSwitchHandlerFunction(switchHandlerFunction) {
@@ -163,8 +187,8 @@ class ProjectList {
   switchProject(projectId) {
     // const projectIndex = this.projects.findIndex(p => p.id === projectId);
     // this.projects.splice(projectIndex, 1);
-    this.switchHandler(this.projects.find(p => p.id === projectId));
-    this.projects = this.projects.filter(p => p.id !== projectId);
+    this.switchHandler(this.projects.find((p) => p.id === projectId));
+    this.projects = this.projects.filter((p) => p.id !== projectId);
   }
 }
 
