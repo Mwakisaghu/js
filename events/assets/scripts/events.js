@@ -23,10 +23,17 @@ const boundFn = buttonClickHandler.bind(this);
 
 //button.removeEventListener();
 
-buttons.forEach((btn) => {
+/*buttons.forEach((btn) => {
   btn.addEventListener('click', buttonClickHandler);
 });
 
 window.addEventListener('scroll', (ev) => {
+  console.log(ev);
+});*/
+
+const form = document.querySelector('form');
+
+form.addEventListener('submit', (ev) => {
+  ev.preventDefault();
   console.log(ev);
 });
