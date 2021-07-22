@@ -1,4 +1,5 @@
 const buttons = document.querySelectorAll('button');
+const button = document.querySelector('button');
 
 const buttonClickHandler = (event) => {
   //console.log(event);
@@ -35,5 +36,22 @@ const form = document.querySelector('form');
 
 form.addEventListener('submit', (ev) => {
   ev.preventDefault();
+  console.log(ev);
+});
+
+const div = document.querySelector('div');
+
+div.addEventListener(
+  'click',
+  (ev) => {
+    console.log('Clicked DIV');
+    console.log(ev);
+  },
+  true
+);
+
+button.addEventListener('click', (ev) => {
+  ev.stopPropagation();
+  console.log('Clicked Button');
   console.log(ev);
 });
