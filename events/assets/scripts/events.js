@@ -55,3 +55,21 @@ button.addEventListener('click', (ev) => {
   console.log('Clicked Button');
   console.log(ev);
 });
+
+//approach 1- select all l1 items and add multiple listeners
+/*const listItems = document.querySelectorAll('li');
+
+listItems.forEach((listItem) => {
+  listItem.addEventListener('click', (ev) => {
+    ev.target.classList.toggle('highlight');
+  });
+});*/
+
+//approach 2- event propagation
+const list = document.querySelector('ul');
+
+list.addEventListener('click', (ev) => {
+  //console.log(ev.currentTarget);
+  //ev.target.classList.toggle('highlight');
+  ev.target.closest('li').classList.toggle('highlight');
+});
