@@ -172,6 +172,19 @@ class ProjectList {
         list.parentElement.classList.remove('droppable');
       }
     });
+
+    list.addEventListener('drop', (ev) => {
+      const prjId = ev.dataTransfer.getData('text/plain');
+      if (this.projects.find((p) => p.id === prjId)) {
+        return;
+      }
+      document
+        .getElementById(prjId)
+        .querySelector('button:last-of-type')
+        .click();
+      list.parentElement.classList.remove('droppable');
+      ev.preventDefault();
+    });
   }
 
   setSwitchHandlerFunction(switchHandlerFunction) {
