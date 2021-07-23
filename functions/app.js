@@ -29,3 +29,20 @@ const printHobbies = (h) => {
 };
 
 printHobbies(hobbies);
+
+//Factory functions --function that produces another another function.
+const createTaxCalc = (tax) => {
+  const calculateTax = (amount) => {
+    return amount * tax;
+  };
+  return calculateTax;
+};
+
+const calculateVatAmount = createTaxCalc(0.16);
+const calculateIncomeAmount = createTaxCalc(0.25);
+
+console.log(calculateVatAmount(100));
+console.log(calculateVatAmount(200));
+
+//const vatAmount = calculateTax(100, 0.16);
+//const incomeTax = calculateTax(100, 0.25);
