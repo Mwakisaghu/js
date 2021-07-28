@@ -31,9 +31,11 @@ const printHobbies = (h) => {
 printHobbies(hobbies);
 
 //Factory functions --function that produces another another function.
+let multiplier = 1.1;
+
 const createTaxCalc = (tax) => {
   const calculateTax = (amount) => {
-    return amount * tax;
+    return amount * tax * multiplier;
   };
   return calculateTax;
 };
@@ -41,8 +43,22 @@ const createTaxCalc = (tax) => {
 const calculateVatAmount = createTaxCalc(0.16);
 const calculateIncomeAmount = createTaxCalc(0.25);
 
+//multiplier = 1.2;
+
 console.log(calculateVatAmount(100));
 console.log(calculateVatAmount(200));
 
 //const vatAmount = calculateTax(100, 0.16);
 //const incomeTax = calculateTax(100, 0.25);
+
+//practicing closures in detail
+let userName = 'Harry';
+
+const greetUser = () => {
+  let name = userName
+  console.log('Hi ' + name);
+};
+
+userName = 'codedGenius';
+
+greetUser();
