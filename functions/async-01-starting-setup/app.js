@@ -5,13 +5,15 @@ function trackUserHandler() {
   //console.log('Clicked!');
   navigator.geolocation.getCurrentPosition(
     (posData) => {
-      console.log(posData);
+      setTimeout(() => {
+        console.log(posData);
+      }, 2000);
     },
     (error) => {
       console.log(error);
     }
   );
-  console.log('Getting position ... ')
+  console.log('Getting position ... ');
 }
 
 button.addEventListener('click', trackUserHandler);
