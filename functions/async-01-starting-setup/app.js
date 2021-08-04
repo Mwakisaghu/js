@@ -25,34 +25,35 @@ const setTimer = (duration) => {
   return promise;
 };
 
-function trackUserHandler() {
-  //console.log('Clicked!');
-  //navigator.geolocation.getCurrentPosition(
-  let positionData;
-  getPosition()
-    .then((posData) => {
+async function trackUserHandler() {
+  //let positionData;
+  let posData;
+  let timerData;
+  try {
+    posData = await getPosition();
+    timerData = setTimer(2000);
+  } catch (error) {
+    console.log(error);
+  }
+  console.log(timerData, posData);
+
+  /* .then((posData) => {
       positionData = posData;
       return setTimer(2000);
-    })
-    .catch((err) => {
+    }) */
+
+  /* .catch((err) => {
       console.log(err);
       return 'Lets go!';
     })
     .then((data) => {
       console.log(data, positionData);
     });
-  /*(posData) => {
-      setTimer(2000).then((data) => {
-        console.log(data, posData);
-      });
-    },
-    (error) => {
-      console.log(error);
-    }*/
-  setTimer(1000).then(() => {
+
+  /*setTimer(1000).then(() => {
     console.log('Timer done!');
   });
-  console.log('Getting position ... ');
+  console.log('Getting position ... ') */
 }
 
 button.addEventListener('click', trackUserHandler);
