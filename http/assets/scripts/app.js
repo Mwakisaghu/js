@@ -5,48 +5,48 @@ const fetchButton = document.querySelector('#available-posts button');
 const postList = document.querySelector('ul');
 
 function sendHttpRequests(method, url, data) {
-  const xhr = new XMLHttpRequest();
-  const promise = new Promise((resolve, reject) => {
-    xhr.open(method, url);
+  // const promise = new Promise((resolve, reject) => {
+  // const xhr = new XMLHttpRequest();
+  // xhr.open(method, url);
+  // xhr.responseType = 'json';
+  // xhr.onload = function () {
+  //   if ((xhr.status >= 200) & (xhr.status <= 300)) {
+  //     resolve.log(xhr.response);
+  //   } else {
+  //     reject(new Error('Something went wrong!'));
+  //   }
+  //   //console.log(xhr.response);
+  //   //const listsOfPosts = JSON.parse(xhr.response);
+  // };
+  // xhr.onerror = function () {
+  //   reject(new Error('Failed to send Request!'));
+  // };
+  // xhr.send(JSON.stringify(data));
 
-    xhr.responseType = 'json';
-
-    xhr.onload = function () {
-      if ((xhr.status >= 200) & (xhr.status <= 300)) {
-        resolve.log(xhr.response);
-      } else {
-        reject(new Error('Something went wrong!'));
-      }
-      //console.log(xhr.response);
-      //const listsOfPosts = JSON.parse(xhr.response);
-    };
-
-    xhr.onerror = function () {
-      reject(new Error('Failed to send Request!'));
-    };
-
-    xhr.send(JSON.stringify(data));
+  // });
+  // return promise;
+  return fetch(url).then((response) => {
+    return response.json();
   });
-  return promise;
 }
 
 async function fetchPosts() {
-  try {
-    const responseData = await sendHttpRequests(
-      'GET',
-      'https://jsonplaceholder.typicode.com/pos'
-    );
-    const listsOfPosts = responseData;
-    for (const post of listsOfPosts) {
-      const postEl = document.importNode(postTemplate.content, true);
-      postEl.querySelector('h2').textContent = post.title.toUpperCase();
-      postEl.querySelector('p').textContent = post.body;
-      postEl.querySelector('li').id = post.id;
-      listElement.append(postEl);
-    }
-  } catch (error) {
-    alert(error.message);
+  //try {
+  const responseData = await sendHttpRequests(
+    'GET',
+    'https://jsonplaceholder.typicode.com/posts'
+  );
+  const listsOfPosts = responseData;
+  for (const post of listsOfPosts) {
+    const postEl = document.importNode(postTemplate.content, true);
+    postEl.querySelector('h2').textContent = post.title.toUpperCase();
+    postEl.querySelector('p').textContent = post.body;
+    postEl.querySelector('li').id = post.id;
+    listElement.append(postEl);
   }
+  //   } catch (error) {
+  //     alert(error.message);
+  //   }
 }
 
 async function createPost(title, content) {
