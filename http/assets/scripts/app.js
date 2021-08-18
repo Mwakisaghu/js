@@ -53,7 +53,7 @@ async function fetchPosts() {
   try {
     const responseData = await sendHttpRequests(
       'GET',
-      'https://jsonplaceholder.typicode.com/pos'
+      'https://jsonplaceholder.typicode.com/posts'
     );
     const listsOfPosts = responseData;
     for (const post of listsOfPosts) {
